@@ -27,7 +27,7 @@
           >
             <i class="fas fa-poll text-xl"></i>
           </div>
-          <h5 class="text-xl mt-5 font-semibold text-white">Temperature</h5>
+          <h5 class="text-xl mt-5 font-semibold text-white">Temperaturee</h5>
           <p class="mt-2 mb-4 text-blueGray-400">
             {{ scd30?.temperature }}
           </p>
