@@ -4,9 +4,6 @@ dependencies:
   ds18b20:
     specifier: ^0.1.0
     version: 0.1.0
-  ds18x20:
-    specifier: ^0.2.0
-    version: 0.2.0
   scd30-node:
     specifier: ^1.0.3
     version: 1.0.3
@@ -1865,10 +1862,6 @@ packages:
     resolution: {integrity: sha512-tLRNUXati5MFePdAk8dw7Qt7DpxPB60ofAgn8WRhW6a2rcimZnYBP9oxHiv0OHy+Wz7kPMG+t4LGdt31+4EmGg==}
     dev: true
 
-  /async@0.2.10:
-    resolution: {integrity: sha512-eAkdoKxU6/LkKDBzLpT+t6Ff5EtfSF4wx1WfJiPEEV7WNLnDaRXk0oVysiEPm262roaachGexwUv94WhSgN5TQ==}
-    dev: false
-
   /async@2.6.4:
     resolution: {integrity: sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==}
     dependencies:
@@ -2681,14 +2674,6 @@ packages:
 
   /ds18b20@0.1.0:
     resolution: {integrity: sha512-TDooccOuiFv4JeuKl7xiiGC2t32nZwMahJ1sYKvpdT1dG3XlOavJ+JClIP4UBOr91+/9l2CRHmQ+iUUOUuWtlw==}
-    dev: false
-
-  /ds18x20@0.2.0:
-    resolution: {integrity: sha512-VQrKTMUNeDLS/EgQnTGgvuHdrFFpUFIwXYX9kwiakT6BGJgSBpuaSQDWVN30dHxcC7pJWOZ0yi5NpJFEYrPZKw==}
-    dependencies:
-      async: 0.2.10
-      sandal: 1.0.1
-      sync-exec: 0.5.0
     dev: false
 
   /duplexer@0.1.2:
@@ -6170,10 +6155,6 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sandal@1.0.1:
-    resolution: {integrity: sha512-GHXRpOa7IHN4CNSe0mD11m352xQ5HtMVd8ofB/g2a9pyAg6ypS4Xy1qK94AqRnTOr08aWT7M47ram3+uSK21WA==}
-    dev: false
-
   /scd30-node@1.0.3:
     resolution: {integrity: sha512-e7LLKVXhdN2w84jrT8TkniZmInLiRaRIAsiQG29QUWbpCW03b+AKjLS43IK//tp8mEhOJIMkJ/S7gI55L3b3bQ==}
     dependencies:
@@ -6549,10 +6530,6 @@ packages:
       csso: 5.0.5
       picocolors: 1.0.0
     dev: true
-
-  /sync-exec@0.5.0:
-    resolution: {integrity: sha512-iiVs4FvVmI0OC9O4HgG6gNSdLER1xymiXIAq9vTLcJpQ2Ny8n/fPr/2dvi7eZ1dRT1Mvqz02hE7p3LPpFJQvDw==}
-    dev: false
 
   /synckit@0.8.5:
     resolution: {integrity: sha512-L1dapNV6vu2s/4Sputv8xGsCdAVlb5nRDMFU/E27D44l5U6cw1g0dGd45uLc+OXjNMmF4ntiMdCimzcjFKQI8Q==}
