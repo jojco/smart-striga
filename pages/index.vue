@@ -13,36 +13,39 @@
           <!-- <button class="bg-emerald-600 p-2" @click="refresh()">Refresh</button> -->
         </div>
       </div>
-      <div class="flex flex-wrap mt-12 justify-center">
-        <div class="w-full lg:w-3/12 px-4 text-center">
+
+      <div class="flex flex-wrap mt-12 justify-center gap-4">
+        <div class="px-4 text-center">
           <div
-            class="text-lightBlue-300 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
+            class="p-3 w-12 h-12 shadow-lg rounded-full inline-flex items-center justify-center"
           >
-            <i class="fas fa-medal text-xl"></i>
+            <i class="ri-arrow-up-line"></i>
           </div>
           <h6 class="text-xl mt-5 font-semibold text-gray-500">CO2</h6>
           <p class="mt-2 mb-4 text-blueGray-400">
             {{ scd30?.co2Concentration }}
           </p>
         </div>
-        <div class="w-full lg:w-3/12 px-4 text-center">
+        <div class="px-4 text-center">
           <div
-            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
+            class="p-3 w-12 h-12 shadow-lg rounded-full inline-flex items-center justify-center"
           >
-            <i class="fas fa-poll text-xl"></i>
+            <i class="ri-arrow-up-line"></i>
           </div>
-          <h5 class="text-xl mt-5 font-semibold text-gray-500">Temperaturee</h5>
+          <h5 class="text-xl mt-5 font-semibold text-gray-500">Temperature</h5>
           <p class="mt-2 mb-4 text-blueGray-400">
             {{ scd30?.temperature }}
           </p>
         </div>
-        <div class="w-full lg:w-3/12 px-4 text-center">
+        <div class="px-4 text-center">
           <div
-            class="text-blueGray-800 p-3 w-12 h-12 shadow-lg rounded-full bg-white inline-flex items-center justify-center"
+            class="p-3 w-12 h-12 shadow-lg rounded-full inline-flex items-center justify-center"
           >
-            <i class="fas fa-poll text-xl"></i>
+            <i class="ri-arrow-up-line"></i>
           </div>
-          <h5 class="text-xl mt-5 font-semibold text-gray-500">humidity</h5>
+          <h5 class="text-xl mt-5 font-semibold text-gray-500">
+            Relative Humidity
+          </h5>
           <p class="mt-2 mb-4 text-blueGray-400">
             {{ scd30?.relativeHumidity }}
           </p>

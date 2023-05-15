@@ -4,6 +4,9 @@ dependencies:
   ds18b20:
     specifier: ^0.1.0
     version: 0.1.0
+  remixicon:
+    specifier: ^3.2.0
+    version: 3.2.0
   scd30-node:
     specifier: ^1.0.3
     version: 1.0.3
@@ -6020,6 +6023,10 @@ packages:
     resolution: {integrity: sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg==}
     engines: {node: '>=8'}
     dev: true
+
+  /remixicon@3.2.0:
+    resolution: {integrity: sha512-ADh4EQE4UGtm9GHqD+TIfVp1b0zeWso6efaMAnejdB6/7Z1W02Ka5K8khQaz+LNgIqC6dSZxCvXMWNalYWHiNQ==}
+    dev: false
 
   /replace-in-file@6.3.5:
     resolution: {integrity: sha512-arB9d3ENdKva2fxRnSjwBEXfK1npgyci7ZZuwysgAp7ORjHSyxz6oqIjTEv8R0Ydl4Ll7uOAZXL4vbkhGIizCg==}

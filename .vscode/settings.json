@@ -4,6 +4,12 @@
     },
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "editor.quickSuggestions": {
+        "strings": true
+    },
     "prettier.semi": false,
     "prettier.stylelintIntegration": true,
 }

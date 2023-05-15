@@ -8,6 +8,7 @@
         "@nuxtjs/eslint-config-typescript",
         "plugin:nuxt/recommended",
         "plugin:prettier/recommended",
+        "plugin:tailwindcss/recommended",
         "prettier"
     ],
     "parserOptions": {
@@ -15,9 +16,15 @@
         "parser": "@typescript-eslint/parser",
         "sourceType": "module"
     },
+    "settings": {
+        "tailwindcss": {
+            "config": "tailwind.config.ts"
+        }
+    },
     "plugins": [
         "vue",
         "prettier",
+        "tailwindcss",
         "@typescript-eslint"
     ],
     "rules": {
