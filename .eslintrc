@@ -16,22 +16,36 @@
         "parser": "@typescript-eslint/parser",
         "sourceType": "module"
     },
-    "settings": {
-        "tailwindcss": {
-            "config": "tailwind.config.ts"
-        }
-    },
     "plugins": [
         "vue",
         "prettier",
         "tailwindcss",
         "@typescript-eslint"
     ],
+    "settings": {
+        "tailwindcss": {
+            "config": ".nuxt/tailwind.config.cjs"
+        }
+    },
     "rules": {
         "vue/multi-word-component-names": 0,
         "no-console": "off",
+        "max-len": "off",
         "prettier/prettier": [
-            "error"
+            "error",
+            {
+                "semi": true,
+                "tabWidth": 2,
+                "trailingComma": "none",
+                "singleQuote": true,
+                "printWidth": 120
+            }
         ]
+        // "tailwindcss/no-custom-classname": [
+        //   0,
+        //   {
+        //     "regex": "^bg-"
+        //   }
+        // ]
     }
 }

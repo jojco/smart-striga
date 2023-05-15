@@ -1,7 +1,11 @@
 import { Config } from 'tailwindcss';
 
 export default <Config>{
-  content: ['app.vue', 'components/**/*.{vue,js,ts}'],
+  content: [
+    'app.vue',
+    'components/**/*.{vue,js,ts}',
+    'layouts/**/*.{vue,js,ts}'
+  ],
   darkMode: 'class',
   theme: {
     fontFamily: {

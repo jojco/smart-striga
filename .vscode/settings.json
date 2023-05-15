@@ -10,6 +10,7 @@
     "editor.quickSuggestions": {
         "strings": true
     },
-    "prettier.semi": false,
-    "prettier.stylelintIntegration": true,
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "vue",
+    },
 }
