@@ -28,8 +28,10 @@
   },
   "dependencies": {
     "@vueuse/core": "^10.1.2",
+    "chart.js": "^4.3.0",
     "ds18b20-raspi-typescript": "^0.4.0",
     "remixicon": "^3.2.0",
-    "scd30-node": "^1.0.3"
+    "scd30-node": "^1.0.3",
+    "vue-chartjs": "^5.2.0"
   }
 }
