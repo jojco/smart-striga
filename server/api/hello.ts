@@ -1,6 +1,6 @@
 export default defineEventHandler(() => {
-    return {
-      api: 'works'
-    };
-  });
-  
+  return {
+    api: 'works',
+    meno: 'jozed'
+  };
+});

@@ -1,39 +1,28 @@
-import ds18b20 from 'ds18b20';
+import sensor from 'ds18b20-raspi-typescript';
 
-interface W1SensorResponse {
-  sensor: string;
-  temperature: number;
-}
+const ds18b20 = sensor;
 
-const getTemperature = (sensor: string): Promise<W1SensorResponse> => {
+let temperatures: Array<W1SensorResponse> = [];
+const getTemperature = (): Promise<Array<W1SensorResponse>> => {
   return new Promise((resolve, reject) => {
-    ds18b20.temperature(sensor, { parser: 'hex' }, function (err, value) {
-      if (err) {
-        reject(err);
-      } else {
-        const response: W1SensorResponse = {} as W1SensorResponse;
-        response.sensor = sensor;
-        response.temperature = value;
-        console.log('Current temperature is:', response);
-        resolve(response);
+    ds18b20.list().forEach((sensorId) => {
+      const measuredTemperature = ds18b20.readC(sensorId, 2);
+      console.log(measuredTemperature);
+      if (measuredTemperature) {
+        temperatures.push({
+          sensor: sensorId,
+          temperature: measuredTemperature
+        });
       }
     });
+    return resolve(temperatures);
   });
 };
 
-let temperatures: Array<W1SensorResponse> = [];
-ds18b20.sensors((err, sensors) => {
-  // console.error('Error: ', err);
-  sensors.forEach((sensor: string) => {
-    const temperature = getTemperature(sensor);
-    temperature.then((result) => {
-      temperatures.push(result);
-    });
-  });
-});
+export default defineEventHandler(async () => {
+  const data = await getTemperature();
 
-export default defineEventHandler(async (event) => {
   return {
-    sensors: temperatures
+    sensors: data
   };
 });

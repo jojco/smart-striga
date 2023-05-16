@@ -21,13 +21,14 @@
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-tailwindcss": "^3.12.0",
-    "vite-plugin-eslint": "^1.6.1",
     "nuxt": "^3.4.0",
     "prettier": "^2.6.2",
-    "prettier-plugin-tailwindcss": "^0.2.7"
+    "prettier-plugin-tailwindcss": "^0.2.7",
+    "vite-plugin-eslint": "^1.6.1"
   },
   "dependencies": {
-    "ds18b20": "^0.1.0",
+    "@vueuse/core": "^10.1.2",
+    "ds18b20-raspi-typescript": "^0.4.0",
     "remixicon": "^3.2.0",
     "scd30-node": "^1.0.3"
   }

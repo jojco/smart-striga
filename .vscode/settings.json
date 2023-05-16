@@ -7,10 +7,12 @@
     "files.associations": {
         "*.css": "tailwindcss"
     },
+    "css.validate": false,
+    "tailwindCSS.includeLanguages": {
+        "vue": "html",
+        "vue-html": "html"
+    },
     "editor.quickSuggestions": {
         "strings": true
-    },
-    "tailwindCSS.includeLanguages": {
-        "plaintext": "vue",
-    },
+    }
 }
