@@ -21,6 +21,7 @@ const getTemperature = (): Promise<Array<W1SensorResponse>> => {
 
 export default defineEventHandler(async () => {
   const data = await getTemperature();
+  
   return {
     sensors: data
   };

@@ -1,5 +1,24 @@
+<script setup lang="ts">
+const { data: w1, refresh: refreshW1 } = await useFetch('/api/wire1');
+const { data: scd30, refresh: refreshSCD30 } = await useFetch('/api/scd30');
+const { data: hello } = useFetch('/api/hello');
+
+const refreshRateW1 = ref(5000)
+const refreshRateSCD30 = ref(5000)
+
+setInterval(function () {
+  refreshW1();
+}, refreshRateW1.value);
+
+setInterval(function () {
+  refreshSCD30();
+}, refreshRateSCD30.value);
+
+onMounted(() => {});
+</script>
+
 <template>
-  <div class="container flex flex-col mx-auto">
+  <div class="container grid grid-cols-4">
     <div v-for="sensor in w1?.sensors" class="flex w-full gap-4">
       <WidgetTemperature
         :name="sensor.sensor"
@@ -7,7 +26,7 @@
       />
     </div>
 
-    <div class="flex flex-wrap mt-12 justify-center gap-4">
+    <div class="grid grid-cols-4 2 justify-center gap-4">
       <div class="px-4 text-center">
         <h6 class="text-xl mt-5 font-semibold text-gray-500">CO2</h6>
         <p class="mt-2 mb-4 text-blueGray-400">
@@ -32,18 +51,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-const { data: w1, refresh: refreshW1 } = await useFetch('/api/wire1');
-const { data: scd30, refresh: refreshSCD30 } = await useFetch('/api/scd30');
-const { data: hello } = useFetch('/api/hello');
-
-setInterval(function () {
-  refreshW1();
-}, 3000);
-
-setInterval(function () {
-  refreshSCD30();
-}, 5000);
-
-onMounted(() => {});
-</script>

@@ -16,5 +16,3 @@ defineProps<{
   temperature: number;
 }>();
 </script>
-
-<style scoped></style>

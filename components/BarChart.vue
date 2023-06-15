@@ -1,7 +1,3 @@
-<template>
-  <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
-</template>
-
 <script>
 import { Bar } from 'vue-chartjs';
 import {
@@ -39,3 +35,8 @@ export default {
   }
 };
 </script>
+
+<template>
+  <Bar id="my-chart-id" :options="chartOptions" :data="chartData" />
+</template>
+
