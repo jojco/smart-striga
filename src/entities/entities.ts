@@ -24,3 +24,11 @@ export class SCD30Response{
   @ApiProperty({ example: 1, description: 'The age of the Cat' })
   relativeHumidity: number;
 }
+
+// export class SCD30Response{
+//   @ApiProperty({ example: 1, description: 'The age of the Cat' })
+//   co2Concentration: number;
+
+//   @ApiProperty({ example: 1, description: 'The age of the Cat' })
+//   temperature: number;
+// }

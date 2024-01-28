@@ -49,6 +49,9 @@ devDependencies:
   '@types/node':
     specifier: ^20.3.1
     version: 20.11.7
+  '@types/rpi-gpio':
+    specifier: ^2.1.4
+    version: 2.1.4
   '@types/supertest':
     specifier: ^6.0.0
     version: 6.0.2
@@ -76,6 +79,9 @@ devDependencies:
   prettier:
     specifier: ^3.0.0
     version: 3.2.4
+  rpi-gpio:
+    specifier: ^2.1.7
+    version: 2.1.7
   scd30-node:
     specifier: ^1.0.4
     version: 1.0.4
@@ -1322,6 +1328,12 @@ packages:
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
     dev: true
 
+  /@types/rpi-gpio@2.1.4:
+    resolution: {integrity: sha512-Oq42Y18xh/xDPBB1bA6vNf1uHK+oYr7bjg8Hv0JJRUy+5+k5gaYfAIgkBDuacvU4U4TnpPMm5wu86OBq1TtaNQ==}
+    dependencies:
+      '@types/node': 20.11.7
+    dev: true
+
   /@types/semver@7.5.6:
     resolution: {integrity: sha512-dn1l8LaMea/IjDoHNd9J52uBbInB796CDffS6VdIxvqYCPSG0V0DzHp76GpaWnlhg88uYyPbXCDIowa86ybd5A==}
     dev: true
@@ -1780,6 +1792,12 @@ packages:
 
   /asap@2.0.6:
     resolution: {integrity: sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA==}
+    dev: true
+
+  /async-retry@1.3.3:
+    resolution: {integrity: sha512-wfr/jstw9xNi/0teMHrRW7dsz3Lt5ARhYNZ2ewpadnhaIp5mbALhOAP+EAdsC7t4Z6wqsDVv9+W6gm1Dk9mEyw==}
+    dependencies:
+      retry: 0.13.1
     dev: true
 
   /async@3.2.5:
@@ -2310,6 +2328,17 @@ packages:
     dependencies:
       ms: 2.0.0
 
+  /debug@3.2.7:
+    resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+    dependencies:
+      ms: 2.1.3
+    dev: true
+
   /debug@4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
@@ -2483,6 +2512,15 @@ packages:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.1
+    dev: true
+
+  /epoll@2.0.10:
+    resolution: {integrity: sha512-kx5y1SxivN99HjXDZpE/A73FHJV/dzRQt+qoF88CEza3RcEKGqNfkXPPY/oqVBV5w6G2N6b8xd5s5zprgrUVnQ==}
+    engines: {node: '>=4.0.0'}
+    requiresBuild: true
+    dependencies:
+      bindings: 1.5.0
+      nan: 2.18.0
     dev: true
 
   /error-ex@1.3.2:
@@ -4664,6 +4702,11 @@ packages:
       signal-exit: 3.0.7
     dev: true
 
+  /retry@0.13.1:
+    resolution: {integrity: sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==}
+    engines: {node: '>= 4'}
+    dev: true
+
   /reusify@1.0.4:
     resolution: {integrity: sha512-U9nH88a3fc/ekCF1l0/UP1IosiuIjyTh7hBvXVMHYgVcfGvt897Xguj2UOLDeI5BG2m7/uwyaLVT6fbtCwTyzw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
@@ -4687,6 +4730,16 @@ packages:
   /round-to@5.0.0:
     resolution: {integrity: sha512-i4+Ntwmo5kY7UWWFSDEVN3RjT2PX1FqkZ9iCcAO3sKML3Ady9NgsjM/HLdYKUAnrxK4IlSvXzpBMDvMHZQALRQ==}
     engines: {node: '>=10'}
+    dev: true
+
+  /rpi-gpio@2.1.7:
+    resolution: {integrity: sha512-u6McqKR6QuHP5zq/3UuXkJfY2fJHhvNaJMP58jz7pIf4OFyhBI3hh0vyYn5OGMwFbFdcBfOMC1RAPeRXLKF6YA==}
+    dependencies:
+      async-retry: 1.3.3
+      debug: 3.2.7
+      epoll: 2.0.10
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /run-async@2.4.1:
