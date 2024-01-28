@@ -14,11 +14,7 @@ export class GPIOService {
         rpigpio.setup(37, rpigpio.DIR_LOW);
     }
 
-    async setG() {
-        rpigpio.write(29, true);
-    }
-
-    async setD() {
-        rpigpio.write(29, false);
+    async enableGPIO(pin: number, on: boolean) {
+        rpigpio.write(pin, on);
     }
 }
