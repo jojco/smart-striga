@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { SCD30 } from 'scd30-node';
-
+import { SCD30Response } from './entities/entities';
 
 @Injectable()
 export class SCD30Service {
@@ -8,22 +8,30 @@ export class SCD30Service {
         return 'Hello from SCD30Service!';
     }
 
-    async getTemperatures(): Promise<SCD30Mesurement> {
-        const scd30 = await SCD30.connect();
-        const measurement: SCD30Mesurement = await scd30.readMeasurement();
-        // scd30.startContinuousMeasurement().then((res) => {
-        //   console.log('start', res);
-        // });
-        // console.log(`CO2 Concentration: ${measurement.co2Concentration} ppm`);
-        // console.log(`Temperature: ${measurement.temperature} °C`);
-        // console.log(`Humidity: ${measurement.relativeHumidity} %`);
-        // await scd30.stopContinuousMeasurement();
-        return {
-            co2Concentration: measurement.co2Concentration | 0,
-            temperature: measurement.temperature | 0,
-            relativeHumidity: measurement.relativeHumidity | 0
-        };
-  }
+    async getTemperatures(maxRetries: number = 3): Promise<SCD30Response | undefined> {
+        let retries = 0;
+        while (retries < maxRetries) {
+            const scd30 = await SCD30.connect();
+            const dataReady = await scd30.isDataReady();
+            if (dataReady) {
+                const measurement: SCD30Response = await scd30.readMeasurement();
+                scd30.disconnect();
+
+                return {
+                    co2Concentration: measurement.co2Concentration,
+                    temperature: measurement.temperature,
+                    relativeHumidity: measurement.relativeHumidity
+                };
+            } else {
+                retries++;
+                console.log('Data not ready. Retrying...');
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Wait for 1 second before retrying
+            }
+        }
+        console.log('Max retries exceeded. Data not available.');
+        return undefined;
+    }
+    
 }
 
 

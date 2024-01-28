@@ -1,39 +1,30 @@
 import { Injectable } from '@nestjs/common';
 import * as ds18b20 from 'ds18b20-raspi-typescript';
-
+import { W1SensorResponse, W1SensorResponseList } from './entities/entities';
 
 @Injectable()
 export class TempService {
-  async getTemperatures(): Promise<W1SensorResponse[]> {
-    let sensors: string[] = ds18b20.list()
+  async getTemperatures(): Promise<W1SensorResponseList> {
+    const sensors: string[] = ds18b20.list();
 
-    const promises: Promise<W1SensorResponse>[] = [];
+    const temperatures: W1SensorResponse[] = await Promise.all(
+      sensors.map(async (sensorId) => {
+        const temperature = ds18b20.readC(sensorId, 2);
+        if (temperature !== undefined) {
+          return { sensor: sensorId, temperature };
+        }
+        return undefined;
+      })
+    );
 
-    // Create an array of promises for each sensor reading
-    sensors.forEach((sensorId) => {
-      promises.push(
-        new Promise(async (resolve) => {
-          const tmp = ds18b20.readC(sensorId, 2);
-          if (tmp) {
-            resolve({
-              sensor: sensorId,
-              temperature: tmp
-            });
-          } else {
-            resolve(undefined); // Resolve with undefined if temperature reading failed
-          }
-        })
-      );
-    });
+    const filteredTemperatures = temperatures.filter(Boolean) as W1SensorResponse[];
 
-    // Wait for all promises to resolve
-    const results = await Promise.all(promises);
+    const listResponse = new W1SensorResponseList();
+    listResponse.sensors = []
+    listResponse.sensors.push(...filteredTemperatures);
 
-    // Filter out undefined results and return the temperatures
-    const temperatures = results.filter((result) => result !== undefined) as W1SensorResponse[];
-
-    console.log('temp: ', results);
+    console.log('temp: ', filteredTemperatures);
     
-    return temperatures;
+    return listResponse;
   }
 }
